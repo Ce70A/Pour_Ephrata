@@ -127,20 +127,6 @@
         }
     });
         
-        // Gestion des erreurs audio
-        document.getElementById('music-control').addEventListener('click', function() {
-            if (music.paused) {
-                music.play()
-                    .then(() => this.textContent = "🔊")
-                    .catch(e => {
-                        this.textContent = "❌";
-                        console.error("Erreur audio :", e);
-                    });
-            } else {
-                music.pause();
-                this.textContent = "🎵";
-            }
-        });
     </script>
 </body>
 </html>
