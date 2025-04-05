@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pour toi ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6e6;
+            padding-top: 50px;
+        }
+        #message {
+            font-size: 24px;
+            color: #ff4d4d;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+        #heart {
+            font-size: 60px;
+            cursor: pointer;
+            margin-top: 20px;
+        },
+    </style>
+</head>
+<body>
+    <h1>Bonsoir <span id="name">Ephrata</span> ❤️</h1>
+    <div id="message"></div>
+    <div id="heart" onclick="showMessage()">❤️</div>
+
+    <script>
+        function showMessage() {
+            const messages = [
+                "Depuis que je te connais...",
+                "Mon monde est plus coloré",
+                "Ton sourire me rend heureux",
+                "J'aimerais te connaître mieux",
+                "Si je t'ai fait de la peine je m'en excuse",
+                "Je t'aime pour de vrai c'est juste que j'ai peur",
+                "j'ai peur de ne pas être à la hauteur",
+                "Peur de te faire du mal",
+                "Je t'aime à la folie",
+                " je ne sais pas comment m'y prendre",
+                "Pardonne moi si je réussis pas à t'avouer mes sentiments",
+                "Accorde moi le temp de m'y préparer",
+                "Je veux que ce soit du sérieux entre nous",
+                "Je te demande Juste un peu de temp",
+                "J'imagine ce que tu peux ressentir",
+                "Je m'excuse pour cela",
+                "Ce ne m'était jamais arrivé je suis amoureux",
+                "J'ai peur oui j'ai peur",
+                "Pardonne moi",
+                "Je t'aime❤️",
+                "Tu es spéciale à mes yeux ❤️"
+            ];
+            
+            const messageElement = document.getElementById('message');
+            const heart = document.getElementById('heart');
+            
+            let i = 0;
+            messageElement.style.opacity = 1;
+            
+            const interval = setInterval(() => {
+                if (i < messages.length) {
+                    messageElement.textContent = messages[i];
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    heart.textContent = "❤️ Clique encore ! ❤️";
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
