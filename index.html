@@ -63,6 +63,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
+        music.src = "https://docs.google.com/uc?export=open&id=1gN-OTNxN5rT4BtWL1WYPFdDlP1byKcF8";
         function showMessage() {
             const messages = [
                "Depuis que je te connais...",
@@ -108,9 +109,23 @@
         }
         
         // Intégration audio
-        const music = new Audio();
-        music.src = "https://drive.google.com/uc?export=download&id=1gN-OTNxN5rT4BtWL1WYPFdDlP1byKcF8";
-        music.loop = true;
+    const music = new Audio();
+    music.src = "https://docs.google.com/uc?export=download&id=1gN-OTNxN5rT4BtWL1WYPFdDlP1byKcF8";
+    music.loop = true;
+    
+    // Solution pour mobile
+    document.body.addEventListener('click', () => {
+        music.play().catch(e => console.log("Lecture manuelle requise"));
+    }, { once: true });
+    
+    document.getElementById('music-control').addEventListener('click', function() {
+        if (music.paused) {
+            music.play().then(() => this.textContent = "🔊");
+        } else {
+            music.pause();
+            this.textContent = "🎵";
+        }
+    });
         
         // Gestion des erreurs audio
         document.getElementById('music-control').addEventListener('click', function() {
